@@ -42,6 +42,9 @@ module.exports = (habiticaData) => {
   };
 };
 
+/**
+ * compares based on number in notes
+ */
 function compareOrder(a, b) {
   if (Number.parseInt(a.notes) < Number.parseInt(b.notes)) {
     return -1;
