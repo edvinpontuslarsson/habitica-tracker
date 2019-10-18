@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = (timeObj, statusObj) => {
+module.exports = (timeObj, accObj) => {
   return `${timeObj.day}/${timeObj.month}/${timeObj.year}
   
 ${timeObj.streak} days now
@@ -8,13 +8,13 @@ ${timeObj.streak} days now
 **Healthy Coping Mechanisms**
 
 ***Dailies:***
-${statusObj.dailies}
+${accObj.dailies}
 
 ***Bonus:***
-${statusObj.habits}
+${accObj.habits}
 
 **To Improve**
-${statusObj.missedDailies}
+${accObj.missedDailies}
 I can always be more present. 
 `;
 };

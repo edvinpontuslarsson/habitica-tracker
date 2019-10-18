@@ -1,15 +1,15 @@
 'use strict';
 
 const getHabiticaData = require('./getHabiticaData');
-const getStatusObj = require('./getStatusObj');
 const getTimeObj = require('./getTimeObj');
+const getAccountabilityObj = require('./getAccountabilityObj');
 const getAccountabilityTxt = require('./getAccountabilityTxt');
 const writeOutput = require('./writeOutput');
 
 getHabiticaData().then((data) => {
   const timeObj = getTimeObj();
-  const statusObj = getStatusObj(data);
+  const accObj = getAccountabilityObj(data);
 
-  const output = getAccountabilityTxt(timeObj, statusObj);
+  const output = getAccountabilityTxt(timeObj, accObj);
   writeOutput(output);
 });
