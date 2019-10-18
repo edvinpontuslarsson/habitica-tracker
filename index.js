@@ -3,6 +3,6 @@
  * Ctrl+Shift+i
  */
 
-'use strict'
+'use strict';
 
-console.log('test')
+console.log('test');
