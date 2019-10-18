@@ -3,7 +3,7 @@
 module.exports = (timeObj, accObj) => {
   return `${timeObj.day}/${timeObj.month}/${timeObj.year}
   
-${timeObj.streak} days now
+Current NF Streak: ${timeObj.streak} days
 
 **Healthy Coping Mechanisms**
 
