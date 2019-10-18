@@ -5,6 +5,7 @@ const fs = require('fs');
 const date = new Date();
 const oneDay = 24 * 60 * 60 * 1000;
 
+// current date & time
 const seconds = date.getSeconds();
 const minutes = date.getMinutes();
 const hours = date.getHours();
@@ -25,11 +26,13 @@ const today = new Date(
   seconds
 );
 
-const streak = Math.round(
+const streak = Math.floor(
   Math.abs(myStreakStart - today) / oneDay - 1
 );
 
-const templateFilePath = process.cwd() + '/template.md';
+const currentWorkDir = process.cwd();
+const templateFilePath = `${currentWorkDir}/template.md`;
+const outputFilePath = `${currentWorkDir}/output.md`;
 
 const template = fs.readFileSync(
   templateFilePath,
@@ -37,7 +40,7 @@ const template = fs.readFileSync(
   (err, data) => data
 );
 
-const mapObj = {
+const replaceObj = {
   DD: day,
   MM: month,
   YY: year,
@@ -46,9 +49,7 @@ const mapObj = {
 
 const output = template.replace(
   /DD|MM|YY|XX/gi,
-  (match) => mapObj[match]
+  (match) => replaceObj[match]
 );
-
-const outputFilePath = process.cwd() + '/output.md';
 
 fs.writeFileSync(outputFilePath, output);
