@@ -1,8 +1,6 @@
-/**
- * Prettier format:
- * Ctrl+Shift+i
- */
-
 'use strict';
 
-console.log('test');
+const fs = require('fs');
+
+const templateFilePath = process.cwd() + '/template.md';
+let template = fs.readFileSync(templateFilePath, 'utf8', (err, data) => data);
