@@ -3,7 +3,7 @@
 module.exports = (habiticaData) => {
   return {
     dailies: habiticaData.data
-      // filter out relevant dailies
+      // filters out relevant dailies
       .filter(
         (obj) =>
           obj.type === 'daily' && obj.completed === true
@@ -15,7 +15,7 @@ module.exports = (habiticaData) => {
       // generates text
       .map((daily) => `${daily.text} :white_check_mark:`)
 
-      // join dailies, separated by line breaks, into a string
+      // joins dailies, separated by line breaks, into a string
       .join('\n'),
 
     habits: habiticaData.data
