@@ -9,14 +9,16 @@ module.exports = (habiticaData) => {
           obj.type === 'daily' && obj.completed === true
       )
       .map((daily) => daily.text)
-      .join(':white_check_mark:\n'),
-    // todo: for habits in string add x <counterUp>
+      .join(' :white_check_mark:\n'),
     habits: habiticaData.data
       .filter(
         (obj) => obj.type === 'habit' && obj.counterUp > 0
       )
       .map(
-        (habit) => `${habit.text} times ${habit.counterUp}`
+        (habit) =>
+          `${habit.text} ${
+            habit.counterUp > 1 ? `${habit.counterUp} ` : ''
+          } ${habit.notes}`
       )
       .join(`\n`),
     missedDailies: habiticaData.data

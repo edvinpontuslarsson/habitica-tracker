@@ -2,6 +2,8 @@
 
 const fetch = require('node-fetch');
 
+// todo: return in promise
+
 // environment variables
 require('dotenv').config();
 
