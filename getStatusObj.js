@@ -4,7 +4,6 @@ module.exports = (habiticaData) => {
   return {
     dailies: habiticaData.data
       .filter(
-        // text
         (obj) =>
           obj.type === 'daily' && obj.completed === true
       )
