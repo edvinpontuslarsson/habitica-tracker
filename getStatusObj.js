@@ -11,9 +11,12 @@ module.exports = (habiticaData) => {
       .map((daily) => daily.text)
       .join('\n'),
     // todo: for habits in string add x <counterUp>
-    habits: habiticaData.data.filter(
-      (obj) => obj.type === 'habit' && obj.counterUp > 0
-    ),
+    habits: habiticaData.data
+      .filter(
+        (obj) => obj.type === 'habit' && obj.counterUp > 0
+      )
+      .map((habit) => `${habit.text} x ${habit.counterUp}`)
+      .join(`\n`),
     missedDailies: habiticaData.data.filter(
       (obj) =>
         obj.type === 'daily' &&
