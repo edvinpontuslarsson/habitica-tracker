@@ -8,10 +8,16 @@ module.exports = (habiticaData) => {
         (obj) =>
           obj.type === 'daily' && obj.completed === true
       )
-      // generate text
+
+      // sorts dailies based on number in notes
+      .sort(compareOrder)
+
+      // generates text
       .map((daily) => `${daily.text} :white_check_mark:`)
+
       // join dailies, separated by line breaks, into a string
       .join('\n'),
+
     habits: habiticaData.data
       .filter(
         (obj) => obj.type === 'habit' && obj.counterUp > 0
@@ -23,6 +29,7 @@ module.exports = (habiticaData) => {
           } ${habit.notes}`
       )
       .join(`\n`),
+
     missedDailies: habiticaData.data
       .filter(
         (obj) =>
@@ -34,3 +41,15 @@ module.exports = (habiticaData) => {
       .join('\n'),
   };
 };
+
+function compareOrder(a, b) {
+  if (Number.parseInt(a.notes) < Number.parseInt(b.notes)) {
+    return -1;
+  }
+
+  if (Number.parseInt(a.notes) < Number.parseInt(b.notes)) {
+    return 1;
+  }
+
+  return 0;
+}
