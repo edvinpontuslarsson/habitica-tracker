@@ -5,7 +5,11 @@ const fs = require('fs');
 const templateFilePath = process.cwd() + '/template.md';
 const outputFilePath = process.cwd() + '/output.md';
 
-let template = fs.readFileSync(templateFilePath, 'utf8', (err, data) => data);
+const template = fs.readFileSync(
+  templateFilePath,
+  'utf8',
+  (err, data) => data
+);
 
 const date = new Date();
 const oneDay = 24 * 60 * 60 * 1000;
@@ -16,6 +20,18 @@ const year = date.getFullYear();
 
 const myStreakStart = new Date(2019, 9, 21);
 const today = new Date(year, month, day);
-const streak = Math.round(Math.abs(myStreakStart - today) / oneDay);
+const streak = Math.round(
+  Math.abs(myStreakStart - today) / oneDay
+);
 
-console.log(streak);
+const mapObj = {
+  DD: day,
+  MM: month,
+  YY: year,
+  XX: streak,
+};
+
+const output = template.replace(
+  /DD|MM|YY|XX/gi,
+  (match) => mapObj[match]
+);
