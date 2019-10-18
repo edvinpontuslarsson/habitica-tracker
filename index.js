@@ -53,3 +53,10 @@ const output = template.replace(
 );
 
 fs.writeFileSync(outputFilePath, output);
+
+const tmpData = require('./tmpDataObj');
+const getStatusObj = require('./getStatusObj');
+
+const statusObj = getStatusObj(tmpData);
+
+console.log(statusObj);
