@@ -7,9 +7,16 @@ const getAccountabilityTxt = require('./getAccountabilityTxt');
 const writeOutput = require('./writeOutput');
 
 getHabiticaData().then((data) => {
+  const currentWorkDir = process.cwd();
+
+  writeOutput(
+    `${currentWorkDir}/habitica-data.json`,
+    JSON.stringify(data)
+  );
+
   const timeObj = getTimeObj();
   const accObj = getAccountabilityObj(data);
 
   const output = getAccountabilityTxt(timeObj, accObj);
-  writeOutput(output);
+  writeOutput(`${currentWorkDir}/output.md`, output);
 });

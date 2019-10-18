@@ -2,9 +2,6 @@
 
 const fs = require('fs');
 
-module.exports = (output) => {
-  const currentWorkDir = process.cwd();
-  const outputFilePath = `${currentWorkDir}/output.md`;
-
+module.exports = (outputFilePath, output) => {
   fs.writeFileSync(outputFilePath, output);
 };

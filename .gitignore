@@ -3,6 +3,7 @@
 # Edit at https://www.gitignore.io/?templates=node,visualstudiocode
 
 output.md
+habitica-data.json
 
 ### Node ###
 # Logs
