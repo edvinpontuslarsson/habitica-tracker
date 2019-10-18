@@ -8,8 +8,8 @@ module.exports = (habiticaData) => {
         (obj) =>
           obj.type === 'daily' && obj.completed === true
       )
-      .map((daily) => daily.text)
-      .join(' :white_check_mark:\n'),
+      .map((daily) => `${daily.text} :white_check_mark:`)
+      .join('\n'),
     habits: habiticaData.data
       .filter(
         (obj) => obj.type === 'habit' && obj.counterUp > 0

@@ -6,11 +6,15 @@ module.exports = (timeObj, statusObj) => {
 ${timeObj.streak} days now
 
 **Healthy Coping Mechanisms**
+
+***Dailies:***
 ${statusObj.dailies}
+
+***Bonus:***
 ${statusObj.habits}
 
 **To Improve**
 ${statusObj.missedDailies}
-And I can always be more present. 
-  `;
+I can always be more present. 
+`;
 };

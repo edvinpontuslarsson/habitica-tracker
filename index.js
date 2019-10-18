@@ -1,19 +1,15 @@
 'use strict';
 
-const fs = require('fs');
-const tmpData = require('./tmpDataObj');
+const getHabiticaData = require('./getHabiticaData');
 const getStatusObj = require('./getStatusObj');
 const getTimeObj = require('./getTimeObj');
 const getAccountabilityTxt = require('./getAccountabilityTxt');
+const writeOutput = require('./writeOutput');
 
-const currentWorkDir = process.cwd();
-const outputFilePath = `${currentWorkDir}/output.md`;
+getHabiticaData().then((data) => {
+  const timeObj = getTimeObj();
+  const statusObj = getStatusObj(data);
 
-// fs.writeFileSync(outputFilePath, output);
-
-const timeObj = getTimeObj();
-const statusObj = getStatusObj(tmpData);
-
-const text = getAccountabilityTxt(timeObj, statusObj);
-
-console.log(text);
+  const output = getAccountabilityTxt(timeObj, statusObj);
+  writeOutput(output);
+});
