@@ -1,4 +1,4 @@
-XX/10/2019
+DD/MM/YY
 
 **Healthy Coping Mechanisms**
 Studied
