@@ -37,6 +37,7 @@ module.exports = (habiticaData) => {
           obj.completed === false &&
           obj.isDue === true
       )
+      .sort(compareOrder)
       .map((daily) => daily.text)
       .join('\n'),
   };

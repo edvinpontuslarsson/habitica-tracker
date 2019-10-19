@@ -15,6 +15,5 @@ ${accObj.habits}
 
 **To Improve**
 ${accObj.missedDailies}
-I can always be more present. 
 `;
 };
