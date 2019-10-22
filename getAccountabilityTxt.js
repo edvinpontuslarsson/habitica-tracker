@@ -1,7 +1,7 @@
 'use strict';
 
-module.exports = (timeObj, accObj) => {
-  return `${timeObj.day}/${timeObj.month}/${timeObj.year}
+module.exports = (timeObj, accObj) =>
+  `${timeObj.day}/${timeObj.month}/${timeObj.year}
   
 Current NF Streak: ${timeObj.streak} days
 
@@ -16,4 +16,3 @@ ${accObj.habits}
 **To Improve**
 ${accObj.missedDailies}
 `;
-};
