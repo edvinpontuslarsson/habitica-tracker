@@ -6,7 +6,9 @@ module.exports = (habiticaData) => {
       // filters out relevant dailies
       .filter(
         (obj) =>
-          obj.type === 'daily' && obj.completed === true
+          obj.type === 'daily' &&
+          obj.completed === true &&
+          obj.priority >= 1 // difficulty is at least easy
       )
 
       // sorts dailies based on number in notes
@@ -35,7 +37,8 @@ module.exports = (habiticaData) => {
         (obj) =>
           obj.type === 'daily' &&
           obj.completed === false &&
-          obj.isDue === true
+          obj.isDue === true &&
+          obj.priority >= 1
       )
       .sort(compareOrder)
       .map((daily) => daily.text)
