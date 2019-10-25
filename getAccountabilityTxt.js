@@ -6,11 +6,7 @@ module.exports = (timeObj, accObj) =>
 Current NF Streak: ${timeObj.streak} days
 
 **Healthy Coping Mechanisms**
-
-***Dailies:***
 ${accObj.dailies}
-
-***Bonus:***
 ${accObj.habits}
 
 **To Improve**
