@@ -15,7 +15,14 @@ module.exports = (habiticaData) => {
       .sort(compareOrder)
 
       // generates text
-      .map((daily) => `${daily.text} :white_check_mark:`)
+      .map(
+        (daily) =>
+          `${daily.text}${
+            daily.text.length < 30
+              ? ' '.repeat(30 - daily.text.length)
+              : ' '
+          }:white_check_mark:`
+      )
 
       // joins dailies, separated by line breaks, into a string
       .join('\n'),

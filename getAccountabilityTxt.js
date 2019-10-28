@@ -6,7 +6,11 @@ module.exports = (timeObj, accObj) =>
 Current NF Streak: ${getStreakTxt(timeObj)}
 
 **Healthy Coping Mechanisms**
+
+***Dailies***
 ${accObj.dailies}
+
+***Bonus***
 ${accObj.habits}
 
 **To Improve**
