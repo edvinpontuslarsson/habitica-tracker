@@ -18,5 +18,5 @@ getHabiticaData().then((data) => {
   const accObj = getAccountabilityObj(data);
 
   const output = getAccountabilityTxt(timeObj, accObj);
-  writeOutput(`${currentWorkDir}/output.md`, output);
+  writeOutput(`${currentWorkDir}/output.txt`, output);
 });
