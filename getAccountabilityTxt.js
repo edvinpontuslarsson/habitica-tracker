@@ -8,17 +8,39 @@ Current NF Streak: ${getStreakTxt(timeObj)}
 **Healthy Coping Mechanisms**
 
 ***Dailies***
-${accObj.dailies}
+${getDailiesTxt(accObj.dailies).join('\n')}
 
 ***Bonus***
-${accObj.habits}
+${getHabitsTxt(accObj.habits).join('\n')}
 
 **To Improve**
-${accObj.missedDailies}
+${accObj.missedDailies
+  .map((daily) => daily.text)
+  .join('\n')}
 `;
 
 function getStreakTxt(timeObj) {
   return timeObj.streak % 7 === 0
     ? `${timeObj.streak / 7} weeks`
     : `${timeObj.streak} days`;
+}
+
+function getDailiesTxt(dailies) {
+  return dailies.map(
+    (daily) =>
+      `${daily.text}${
+        daily.text.length < 30
+          ? ' '.repeat(30 - daily.text.length)
+          : ' '
+      }:white_check_mark:`
+  );
+}
+
+function getHabitsTxt(habits) {
+  return habits.map(
+    (habit) =>
+      `${habit.text} ${
+        habit.counterUp > 1 ? `${habit.counterUp}` : ''
+      } ${habit.notes}`
+  );
 }
