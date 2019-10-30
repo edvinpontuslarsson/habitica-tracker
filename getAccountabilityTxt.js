@@ -24,12 +24,7 @@ function getStreakTxt(timeObj) {
 
 function getDailiesTxt(dailies) {
   return dailies.map(
-    (daily) =>
-      `${daily.text}${
-        daily.text.length < 30
-          ? ' '.repeat(30 - daily.text.length)
-          : ' '
-      }:white_check_mark:`
+    (daily) => `${daily.text} :white_check_mark:`
   );
 }
 
