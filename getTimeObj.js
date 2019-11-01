@@ -33,8 +33,8 @@ function getStreak(timeObj) {
 
   const oneDay = 24 * 60 * 60 * 1000;
 
-  const streak = Math.floor(
-    Math.abs(myStreakStart - today) / oneDay - 1
+  const streak = Math.round(
+    Math.abs(myStreakStart - today) / oneDay
   );
 
   return streak;
