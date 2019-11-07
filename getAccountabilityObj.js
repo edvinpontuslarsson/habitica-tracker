@@ -14,6 +14,9 @@ module.exports = (habiticaData) => {
     habits: habiticaData.data.filter(
       (obj) => obj.type === 'habit' && obj.counterUp > 0
     ),
+    badHabits: habiticaData.data.filter(
+      (obj) => obj.type === 'habit' && obj.counterDown > 0
+    ),
     missedDailies: habiticaData.data
       .filter(
         (obj) =>

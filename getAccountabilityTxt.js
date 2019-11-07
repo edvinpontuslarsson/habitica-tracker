@@ -11,6 +11,7 @@ ${getDailiesTxt(accObj.dailies).join('\n')}
 ${getHabitsTxt(accObj.habits).join('\n')}
 
 **To Improve**
+${getHabitsTxt(accObj.badHabits).join('\n')}
 ${accObj.missedDailies
   .map((daily) => daily.text)
   .join('\n')}
