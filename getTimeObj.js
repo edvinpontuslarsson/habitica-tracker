@@ -1,15 +1,13 @@
 'use strict';
 
-module.exports = () => {
-  const date = new Date();
+const moment = require('moment');
+moment().format('DD/MM/YYYY');
 
+module.exports = () => {
   const timeObj = {
-    seconds: date.getSeconds(),
-    minutes: date.getMinutes(),
-    hours: date.getHours(),
-    day: date.getDate(),
-    month: date.getMonth() + 1, // getMonth() returns 0-based month number
-    year: date.getFullYear(),
+    day: moment().date(),
+    month: moment().month() + 1, // month() returns 0-based month number
+    year: moment().year(),
   };
 
   timeObj.streak = getStreak(timeObj);
@@ -18,24 +16,16 @@ module.exports = () => {
 };
 
 function getStreak(timeObj) {
-  // streak start time here below
-  // year, month, day, hours, minutes, seconds
-  const myStreakStart = new Date(2019, 9, 20, 9, 20, 0);
+  // year, month-1, day
+  const streakStart = moment([2019, 8, 20]);
 
-  const today = new Date(
+  const today = moment([
     timeObj.year,
-    timeObj.month,
+    timeObj.month - 1,
     timeObj.day,
-    timeObj.hours,
-    timeObj.minutes,
-    timeObj.seconds
-  );
+  ]);
 
-  const oneDay = 24 * 60 * 60 * 1000;
-
-  const streak = Math.floor(
-    Math.abs(myStreakStart - today) / oneDay
-  );
+  const streak = today.diff(streakStart, 'days');
 
   return streak;
 }
