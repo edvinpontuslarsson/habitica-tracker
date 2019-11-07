@@ -1,7 +1,6 @@
 'use strict';
 
 const moment = require('moment');
-moment().format('DD/MM/YYYY');
 
 module.exports = () => {
   const timeObj = {
