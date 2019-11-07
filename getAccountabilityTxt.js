@@ -11,7 +11,9 @@ ${getDailiesTxt(accObj.dailies).join('\n')}
 ${getHabitsTxt(accObj.habits).join('\n')}
 
 **To Improve**
-${getHabitsTxt(accObj.badHabits).join('\n')}
+${accObj.badHabits
+  .map((badHabit) => badHabit.text)
+  .join('\n')}
 ${accObj.missedDailies
   .map((daily) => daily.text)
   .join('\n')}
@@ -25,7 +27,7 @@ function getStreakTxt(timeObj) {
 
 function getDailiesTxt(dailies) {
   return dailies.map(
-    (daily) => `${daily.text} :white_check_mark:`
+    (daily) => `:white_check_mark: ${daily.text}`
   );
 }
 
