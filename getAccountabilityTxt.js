@@ -11,11 +11,11 @@ ${getDailiesTxt(accObj.dailies).join('\n')}
 ${getHabitsTxt(accObj.habits).join('\n')}
 
 **To Improve**
-${accObj.badHabits
-  .map((badHabit) => badHabit.text)
-  .join('\n')}
 ${accObj.missedDailies
   .map((daily) => daily.text)
+  .join('\n')}
+${accObj.badHabits
+  .map((badHabit) => badHabit.text)
   .join('\n')}
 `;
 
@@ -34,7 +34,7 @@ function getDailiesTxt(dailies) {
 function getHabitsTxt(habits) {
   return habits.map(
     (habit) =>
-      `:white_check_mark: ${habit.text} ${
+      `${habit.text} ${
         habit.counterUp > 1 ? `${habit.counterUp}` : ''
       } ${habit.notes}`
   );
