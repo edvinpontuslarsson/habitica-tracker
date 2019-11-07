@@ -34,7 +34,7 @@ function getDailiesTxt(dailies) {
 function getHabitsTxt(habits) {
   return habits.map(
     (habit) =>
-      `${habit.text} ${
+      `:white_check_mark: ${habit.text} ${
         habit.counterUp > 1 ? `${habit.counterUp}` : ''
       } ${habit.notes}`
   );
