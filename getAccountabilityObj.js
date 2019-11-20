@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = (habiticaData) => {
-  return {
+  const obj = {
     dailies: habiticaData.data
       // filters out relevant dailies
       .filter(
@@ -27,6 +27,8 @@ module.exports = (habiticaData) => {
       )
       .sort(compareOrder),
   };
+
+  return obj;
 };
 
 /**
@@ -37,7 +39,7 @@ function compareOrder(a, b) {
     return -1;
   }
 
-  if (Number.parseInt(a.notes) < Number.parseInt(b.notes)) {
+  if (Number.parseInt(a.notes) > Number.parseInt(b.notes)) {
     return 1;
   }
 
