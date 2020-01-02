@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = (habiticaData) => {
-  const obj = {
+  return {
     dailies: habiticaData.data
       // filters out relevant dailies
       .filter(
@@ -10,13 +10,18 @@ module.exports = (habiticaData) => {
           obj.completed === true &&
           obj.priority >= 1 // difficulty is at least easy
       )
-      .sort(compareOrder),
+      .sort(compareOrder)
+      // second half, completed
+      .map((daily) => daily.text.split(' / ')[1]),
+
     habits: habiticaData.data.filter(
       (obj) => obj.type === 'habit' && obj.counterUp > 0
     ),
+
     badHabits: habiticaData.data.filter(
       (obj) => obj.type === 'habit' && obj.counterDown > 0
     ),
+
     missedDailies: habiticaData.data
       .filter(
         (obj) =>
@@ -25,10 +30,10 @@ module.exports = (habiticaData) => {
           obj.isDue === true &&
           obj.priority >= 1
       )
-      .sort(compareOrder),
+      .sort(compareOrder)
+      // first half, uncompleted
+      .map((daily) => daily.text.split(' / ')[0]),
   };
-
-  return obj;
 };
 
 /**

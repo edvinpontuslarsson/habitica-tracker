@@ -6,14 +6,11 @@ module.exports = (timeObj, accObj) =>
 Current NF Streak: ${getStreakTxt(timeObj)}
 
 **Healthy Coping Mechanisms**
-${getDailiesTxt(accObj.dailies).join('\n')}
-
+${accObj.dailies.join('\n')}
 ${getHabitsTxt(accObj.habits).join('\n')}
 
 **To Improve**
-${accObj.missedDailies
-  .map((daily) => daily.text)
-  .join('\n')}
+${accObj.missedDailies.join('\n')}
 ${accObj.badHabits
   .map((badHabit) => badHabit.text)
   .join('\n')}
@@ -23,12 +20,6 @@ function getStreakTxt(timeObj) {
   return timeObj.streak % 7 === 0
     ? `${timeObj.streak / 7} weeks`
     : `${timeObj.streak} days`;
-}
-
-function getDailiesTxt(dailies) {
-  return dailies.map(
-    (daily) => `:white_check_mark: ${daily.text}`
-  );
 }
 
 function getHabitsTxt(habits) {
