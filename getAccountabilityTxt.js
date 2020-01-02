@@ -3,7 +3,7 @@
 module.exports = (timeObj, accObj) =>
   `${timeObj.day}/${timeObj.month}/${timeObj.year}
   
-Current Streak: ${getStreakTxt(timeObj)}
+Current Streak: ${getStreakTxt(timeObj)} :wokeaf:
 
 **Healthy Coping Mechanisms**
 ${accObj.dailies.join('\n')}
