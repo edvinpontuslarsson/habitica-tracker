@@ -4,6 +4,7 @@ module.exports = (timeObj, accObj) =>
   `${timeObj.day}/${timeObj.month}/${timeObj.year}
 
 Current Streak: ${getStreakTxt(timeObj)}
+
 **Healthy Coping Mechanisms**
 ${accObj.dailies.join('\n')}
 ${getHabitsTxt(accObj.habits).join('\n')}
