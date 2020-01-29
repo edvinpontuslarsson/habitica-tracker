@@ -3,8 +3,6 @@
 module.exports = (timeObj, accObj) =>
   `${timeObj.day}/${timeObj.month}/${timeObj.year}
 
-Current Streak: ${getStreakTxt(timeObj)}
-
 **Healthy Coping Mechanisms**
 ${accObj.dailies.join('\n')}
 ${getHabitsTxt(accObj.habits).join('\n')}
@@ -15,12 +13,6 @@ ${accObj.badHabits
   .map((badHabit) => badHabit.text)
   .join('\n')}
 `;
-
-function getStreakTxt(timeObj) {
-  return timeObj.streak % 7 === 0
-    ? `${timeObj.streak / 7} weeks`
-    : `${timeObj.streak} days`;
-}
 
 function getHabitsTxt(habits) {
   return habits.map(
