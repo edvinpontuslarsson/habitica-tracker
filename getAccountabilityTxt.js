@@ -1,9 +1,7 @@
 'use strict';
 
 module.exports = (timeObj, accObj) =>
-  `${timeObj.day}/${timeObj.month}/${timeObj.year}
-
-Current streak: ${getStreakTxt(timeObj)}
+  `${timeObj.day}/${timeObj.month}/${timeObj.year} 
 
 **Healthy Coping Mechanisms**
 ${accObj.dailies.join('\n')}
