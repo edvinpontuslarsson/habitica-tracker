@@ -16,7 +16,7 @@ module.exports = () => {
 
 function getStreak(timeObj) {
   // year, month-1, day
-  const streakStart = moment([2020, 3, 21]); // ca 22:40
+  const streakStart = moment([2020, 3, 25]); // ca 16:45
 
   const today = moment([
     timeObj.year,
