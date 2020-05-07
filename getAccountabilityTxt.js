@@ -16,6 +16,8 @@ ${accObj.badHabits
   .join('\n')}
 `;
 
+// TODO fix so that it only says week if only 1 week
+// perhaps
 function getStreakTxt(timeObj) {
   return timeObj.streak % 7 === 0
     ? `${timeObj.streak / 7} weeks`
