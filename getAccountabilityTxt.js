@@ -20,7 +20,9 @@ function getStreakTxt(timeObj) {
   return timeObj.streak === 0
     ? '0 days'
     : timeObj.streak % 7 === 0
-    ? `${timeObj.streak / 7} weeks`
+    ? `${timeObj.streak / 7} week${
+        timeObj.streak !== 7 ? 's' : ''
+      }`
     : `${timeObj.streak} days`;
 }
 
