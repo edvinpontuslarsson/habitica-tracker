@@ -1,5 +1,7 @@
 'use strict';
 
+require('dotenv').config();
+
 const getHabiticaData = require('./getHabiticaData');
 const getTimeObj = require('./getTimeObj');
 const getAccountabilityObj = require('./getAccountabilityObj');

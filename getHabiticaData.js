@@ -2,9 +2,6 @@
 
 const fetch = require('node-fetch');
 
-// environment variables
-require('dotenv').config();
-
 module.exports = () =>
   new Promise((resolve) => {
     fetch('https://habitica.com/api/v3/tasks/user', {
