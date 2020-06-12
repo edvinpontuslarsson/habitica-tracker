@@ -17,7 +17,7 @@ module.exports = () => {
 function getStreak(timeObj) {
   const year = parseInt(process.env.STREAK_START_YEAR);
   const month = parseInt(process.env.STREAK_START_MONTH);
-  const day = parseInt(process.env.STREAK_START__DAY);
+  const day = parseInt(process.env.STREAK_START_DAY);
 
   const streakStart = moment([year, month - 1, day]);
 
